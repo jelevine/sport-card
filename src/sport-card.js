@@ -7,6 +7,7 @@ class SportCard extends LitElement {
     image: { type: String },
     alt: { type: String },
     title: {type: String },
+    diffTitle: { type: String },
     description: { type: String },
     detailButtonText: { type: String}
   }
@@ -131,6 +132,7 @@ button:hover{
     this.image = "https://dgiqkglfef83i.cloudfront.net/images/2023/4/15/Blue-White.png";
     this.alt = "B+W Game Image";
     this.title = "Penn State Blue and White Game";
+    this.diffTitle = "something else";
     this.description = "With all hype on the upcoming football season, the Blue and White game gives the fans something to look forward to watching in the spring!"
     this.detailButtonText = "Description";
   }
@@ -188,11 +190,11 @@ button:hover{
   titleButton(e){
     console.warn(e);
     const title = this.shadowRoot.querySelector('#title');
-    if (title.innerText == 'something else'){
-      title.innerText = 'Penn State Blue and White Game';
+    if (title.innerText == this.diffTitle){
+      title.innerText = this.title;
     }
     else{
-      title.innerHTML = 'something else';
+      title.innerHTML = this.diffTitle;
     }
   }
 
